@@ -21,3 +21,19 @@
 
 
  -->
+ 
+ <tiles-definitions>
+ 	<definition name="default" template="/WEB-INF/views/tilesEx/layout.jsp">		<!-- 화면 템플릿 -->
+		 <put-attribute name="header" value="/WEB-INF/views/tilesEx/header.jsp"/>	<!-- 보통 화면의 상단부 -->	
+		 <put-attribute name="menu" value="/WEB-INF/views/tilesEx/menu.jsp"/>		<!-- 보통 화면의 메뉴 -->
+		 <put-attribute name="footer" value="/WEB-INF/views/tilesEx/footer.jsp"/>	<!-- 보통 화면의 하단부 -->
+ 	</definition>
+ 	
+ 	<definition name="tiles/*" extends="default">								<!-- *(와일드카드)로 controller의 return값과 매칭한다. -->
+ 		<put-attribute name="content" value="/WEB-INF/views/tilesEx/{1}.jsp"/>	<!-- 보통 화면의 본문 -->
+ 		<put-attribute name="title" value="{1}"/>								<!-- 예시)첫번째 와일드카드는 {1}로 매칭, 
+ 																					      두번째 와일드카드는 {2}로 매칭,
+ 																					      세번째 와일드카드는 {3}로 매칭,
+ 																				 -->
+ 	</definition>
+ </tiles-definitions>
